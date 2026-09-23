@@ -1,0 +1,319 @@
+/* Style Sheet cho Landing Page Kỷ Niệm 1 Năm Thành Lập Đại Đồng Cát - Màu Đỏ Đầm Chuẩn Daidongcat.vn */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap');
+
+:root {
+  --primary-red: #A00D2A;    /* Đỏ Đầm Thương Hiệu Daidongcat.vn */
+  --brand-maroon: #800000;   /* Đỏ Đô Sang Trọng */
+  --brand-deep: #5E000A;     /* Đỏ Trầm */
+  --gold-main: #D4AF37;      /* Vàng Ánh Kim */
+  --gold-bright: #FFD700;    /* Vàng Hoàng Gia */
+  --bg-light: #F8F9FA;       /* Nền Xám Trắng Sạch */
+  --white-pure: #FFFFFF;     /* Trắng Tinh */
+  --text-dark: #111827;      /* Chữ Tối Đen Xám */
+  --text-gray: #4B5563;      /* Chữ Phụ */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Typography nghệ thuật */
+.font-heading {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Responsive Dynamic Clamp Font Size cho Tiêu Đề 1 Dòng Duy Nhất */
+.title-single-line {
+  white-space: nowrap !important;
+  font-size: clamp(0.9rem, 2.7vw, 2.25rem) !important;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.title-hero-single-line {
+  white-space: nowrap !important;
+  font-size: clamp(1rem, 3.2vw, 3rem) !important;
+  line-height: 1.25;
+}
+
+.title-slogan-single-line {
+  white-space: nowrap !important;
+  font-size: clamp(0.95rem, 3.1vw, 2.75rem) !important;
+  line-height: 1.3;
+}
+
+/* Biểu Tượng Trống Đồng Nằm Chính Giữa Section (100% Nguyên Vẹn - Tròn Đầy Đủ Không Mất Góc) */
+.hero-center-emblem {
+  width: min(560px, 72vh, 85vw);
+  height: min(560px, 72vh, 85vw);
+  object-fit: contain;
+  opacity: 0.18;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.5));
+  pointer-events: none;
+  animation: rotateEmblem 90s linear infinite;
+}
+
+@keyframes rotateEmblem {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Background Hero Banner - Màu Đỏ Đầm Daidongcat.vn */
+.bg-hero-ddc {
+  background: linear-gradient(135deg, #5E000A 0%, #800000 45%, #A00D2A 100%);
+}
+
+.bg-trongdong-pattern {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 850px;
+  height: 850px;
+  opacity: 0.10;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23FFD700' stroke-width='1.8' fill='none'%3E%3Ccircle cx='400' cy='400' r='380'/%3E%3Ccircle cx='400' cy='400' r='340' stroke-dasharray='8 8'/%3E%3Ccircle cx='400' cy='400' r='300'/%3E%3Ccircle cx='400' cy='400' r='250' stroke-dasharray='12 6'/%3E%3Ccircle cx='400' cy='400' r='200'/%3E%3Ccircle cx='400' cy='400' r='140'/%3E%3Ccircle cx='400' cy='400' r='80'/%3E%3Cpath d='M400 20 L400 780 M20 400 L780 400 M131 131 L669 669 M131 669 L669 131' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  animation: rotateSlow 120s linear infinite;
+}
+
+@keyframes rotateSlow {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Style Card Chuẩn Portal Daidongcat.vn */
+.ddc-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ddc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px rgba(160, 13, 42, 0.15);
+  border-color: #A00D2A;
+}
+
+/* Tall Rectangular Countdown Timer Style (Theo Mẫu Ảnh) */
+.timer-rect-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+@media (min-width: 640px) {
+  .timer-rect-container {
+    gap: 1.25rem;
+  }
+}
+
+.timer-rect-box {
+  width: 68px;
+  height: 115px;
+  background: linear-gradient(180deg, #A00D2A 0%, #750000 100%);
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 215, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 0.4rem 0.6rem 0.4rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timer-rect-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+@media (min-width: 640px) {
+  .timer-rect-box {
+    width: 105px;
+    height: 160px;
+    border-radius: 12px;
+    border-width: 2.5px;
+    padding: 1.2rem 0.75rem 0.9rem 0.75rem;
+  }
+}
+
+.timer-rect-number {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 640px) {
+  .timer-rect-number {
+    font-size: 3.75rem;
+  }
+}
+
+.timer-rect-line {
+  width: 75%;
+  height: 1.5px;
+  background: rgba(255, 215, 0, 0.6);
+  margin: 0.2rem 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.timer-rect-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #FFD700;
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .timer-rect-label {
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+  }
+}
+
+.timer-rect-colon {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+  margin: 0 0.1rem;
+}
+
+@media (min-width: 640px) {
+  .timer-rect-colon {
+    font-size: 3.2rem;
+    margin: 0 0.3rem;
+  }
+}
+
+/* Countdown Box Style Daidongcat.vn - Màu Đỏ Đầm & Viền Vàng */
+.countdown-box {
+  background: linear-gradient(180deg, #A00D2A 0%, #800000 100%);
+  border: 2px solid #FFD700;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(94, 0, 10, 0.5), inset 0 0 15px rgba(255, 215, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* Nút Bấm Đỏ Đầm Phong Cách Daidongcat.vn */
+.btn-ddc-red {
+  background: linear-gradient(135deg, #A00D2A 0%, #800000 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(160, 13, 42, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-ddc-red:hover {
+  background: linear-gradient(135deg, #B81132 0%, #900C25 100%);
+  box-shadow: 0 6px 25px rgba(160, 13, 42, 0.55);
+  transform: translateY(-2px);
+}
+
+.btn-ddc-gold {
+  background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+  color: #5E000A;
+  font-weight: 800;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-ddc-gold:hover {
+  background: linear-gradient(135deg, #FFF5C0 0%, #FFD700 100%);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn-ddc-outline {
+  background: #FFFFFF;
+  color: #A00D2A;
+  border: 2px solid #A00D2A;
+  font-weight: 700;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.btn-ddc-outline:hover {
+  background: #A00D2A;
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(160, 13, 42, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Tab Booth Event Style */
+.booth-tab {
+  background: #FFFFFF;
+  color: #374151;
+  border: 1.5px solid #E5E7EB;
+  font-weight: 700;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.booth-tab:hover {
+  border-color: #A00D2A;
+  color: #A00D2A;
+}
+
+.booth-tab.active {
+  background: linear-gradient(135deg, #A00D2A 0%, #800000 100%);
+  border-color: #FFD700;
+  box-shadow: 0 8px 25px rgba(160, 13, 42, 0.35);
+  color: #FFFFFF;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F3F4F6;
+}
+::-webkit-scrollbar-thumb {
+  background: #A00D2A;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5E000A;
+}
