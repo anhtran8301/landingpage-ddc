@@ -10,9 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
 /* 1. Đồng Hồ Đếm Ngược (Countdown Timer) */
 function initCountdown() {
   // Mốc thời gian sự kiện kỷ niệm: 08:00 AM Ngày 03/10/2026
-  // Dùng Date constructor (Year, MonthIndex 0-11, Day, Hours, Minutes, Seconds)
-  // Tương thích 100% trên Safari/iOS, Chrome, Edge, Firefox mà không bị lỗi Invalid Date (NaN)
   let targetDate = new Date(2026, 9, 3, 8, 0, 0);
+  const now = new Date().getTime();
+
+  // Nếu mốc 03/10/2026 đã qua so với giờ máy người dùng hoặc bị lỗi Invalid Date,
+  // Khởi tạo mốc đếm ngược 15 ngày 8 giờ 30 phút từ lúc truy cập (chỉ khởi tạo 1 lần duy nhất)
+  if (isNaN(targetDate.getTime()) || targetDate.getTime() <= now) {
+    targetDate = new Date(now + (15 * 24 * 60 * 60 * 1000) + (8 * 60 * 60 * 1000) + (35 * 60 * 1000));
+  }
 
   const daysEl = document.getElementById('cd-days');
   const hoursEl = document.getElementById('cd-hours');
@@ -22,14 +27,15 @@ function initCountdown() {
   if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
   function updateTimer() {
-    const now = new Date().getTime();
-    let distance = targetDate.getTime() - now;
+    const currentTime = new Date().getTime();
+    const distance = targetDate.getTime() - currentTime;
 
-    // Nếu ngày mục tiêu đã qua hoặc bị NaN, tự động tính mốc 15 ngày tới tính từ lúc xem trang
-    // để đồng hồ đếm ngược luôn luôn chạy sống động
-    if (isNaN(distance) || distance <= 0) {
-      const fallbackTarget = new Date(now + (15 * 24 * 60 * 60 * 1000));
-      distance = fallbackTarget.getTime() - now;
+    if (distance <= 0) {
+      daysEl.innerText = '00';
+      hoursEl.innerText = '00';
+      minutesEl.innerText = '00';
+      secondsEl.innerText = '00';
+      return;
     }
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
