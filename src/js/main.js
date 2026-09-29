@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* 1. Đồng Hồ Đếm Ngược (Countdown Timer) */
 function initCountdown() {
-  // Mốc thời gian sự kiện kỷ niệm: Ngày 03/10/2026 lúc 08:00 AM
-  const targetDate = new Date(2026, 9, 3, 8, 0, 0); // Tháng 10 là index 9 trong JS
+  // Mốc thời gian sự kiện kỷ niệm: Đúng 08:00 AM Ngày 03/10/2026 (Giờ Việt Nam GMT+7)
+  const targetDate = new Date('2026-10-03T08:00:00+07:00');
 
   const daysEl = document.getElementById('cd-days');
   const hoursEl = document.getElementById('cd-hours');
