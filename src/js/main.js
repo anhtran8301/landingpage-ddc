@@ -1,11 +1,17 @@
 // JavaScript chính cho Landing Page Kỷ Niệm 1 Năm Đại Đồng Cát
 
-document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}
+
+function initAll() {
   initCountdown();
   initBoothTabs();
   initRegistrationModal();
   initNavbarScroll();
-});
+}
 
 /* 1. Đồng Hồ Đếm Ngược (Countdown Timer) */
 function initCountdown() {
@@ -14,7 +20,7 @@ function initCountdown() {
   const now = new Date().getTime();
 
   // Nếu mốc 03/10/2026 đã qua so với giờ máy người dùng hoặc bị lỗi Invalid Date,
-  // Khởi tạo mốc đếm ngược 15 ngày 8 giờ 30 phút từ lúc truy cập (chỉ khởi tạo 1 lần duy nhất)
+  // Khởi tạo mốc đếm ngược 15 ngày 8 giờ 35 phút từ lúc truy cập (khởi tạo 1 lần duy nhất)
   if (isNaN(targetDate.getTime()) || targetDate.getTime() <= now) {
     targetDate = new Date(now + (15 * 24 * 60 * 60 * 1000) + (8 * 60 * 60 * 1000) + (35 * 60 * 1000));
   }
@@ -88,34 +94,35 @@ function initRegistrationModal() {
   const openBtns = document.querySelectorAll('.btn-open-reg');
   const closeBtn = document.getElementById('btn-close-modal');
   const regForm = document.getElementById('registration-form');
+  const secForm = document.getElementById('section-registration-form');
   const successToast = document.getElementById('success-toast');
 
-  if (!modal) return;
-
-  openBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
+  if (modal && openBtns.length) {
+    openBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      });
     });
-  });
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      });
+    }
+
+    // Close modal when clicking outside content
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
     });
   }
 
-  // Close modal when clicking outside content
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-  });
-
-  // Handle Form Submission
+  // Handle Modal Form Submission
   if (regForm) {
     regForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -127,8 +134,10 @@ function initRegistrationModal() {
       }
 
       setTimeout(() => {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+        if (modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }
         regForm.reset();
 
         if (submitBtn) {
@@ -143,11 +152,13 @@ function initRegistrationModal() {
             successToast.classList.add('hidden');
           }, 4000);
         } else {
-          alert('🎉 Chúc mừng! Bạn đã đăng ký tham dự sự kiện Kỷ niệm 1 năm Đại Đồng Cát thành công. Bộ phận hỗ trợ sẽ liên hệ với bạn trong thời gian sớm nhất.');
+          alert('🎉 Chúc mừng! Bạn đã đăng ký tham dự sự kiện Kỷ niệm 1 năm Đại Đồng Cát thành công.');
         }
       }, 800);
+    });
+  }
+
   // Handle Section Registration Form Submission
-  const secForm = document.getElementById('section-registration-form');
   if (secForm) {
     secForm.addEventListener('submit', (e) => {
       e.preventDefault();
