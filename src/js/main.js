@@ -139,6 +139,33 @@ function initRegistrationModal() {
           alert('🎉 Chúc mừng! Bạn đã đăng ký tham dự sự kiện Kỷ niệm 1 năm Đại Đồng Cát thành công. Bộ phận hỗ trợ sẽ liên hệ với bạn trong thời gian sớm nhất.');
         }
       }, 800);
+  // Handle Section Registration Form Submission
+  const secForm = document.getElementById('section-registration-form');
+  if (secForm) {
+    secForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = secForm.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'ĐANG XỬ LÝ...';
+      }
+
+      setTimeout(() => {
+        secForm.reset();
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i><span>XÁC NHẬN ĐĂNG KÝ THAM DỰ SỰ KIỆN</span>';
+        }
+
+        if (successToast) {
+          successToast.classList.remove('hidden');
+          setTimeout(() => {
+            successToast.classList.add('hidden');
+          }, 4000);
+        } else {
+          alert('🎉 Chúc mừng! Bạn đã đăng ký tham dự sự kiện Kỷ niệm 1 năm Đại Đồng Cát thành công.');
+        }
+      }, 800);
     });
   }
 }
