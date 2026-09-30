@@ -490,30 +490,30 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Họ và tên *</label>
-              <input type="text" required placeholder="Nhập họ và tên của bạn..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed focus:ring-1 focus:ring-brandRed">
+              <input type="text" name="fullname" required placeholder="Nhập họ và tên của bạn..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed focus:ring-1 focus:ring-brandRed">
             </div>
 
             <div>
               <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Số điện thoại *</label>
-              <input type="tel" required placeholder="Nhập số điện thoại liên hệ..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed focus:ring-1 focus:ring-brandRed">
+              <input type="tel" name="phone" required placeholder="Nhập số điện thoại liên hệ..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed focus:ring-1 focus:ring-brandRed">
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Email liên hệ</label>
-              <input type="email" placeholder="Nhập địa chỉ email..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed focus:ring-1 focus:ring-brandRed">
+              <input type="email" name="email" placeholder="Nhập địa chỉ email..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed focus:ring-1 focus:ring-brandRed">
             </div>
 
             <div>
               <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Khu vực / Booth quan tâm</label>
-              <select class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brandRed focus:ring-1 focus:ring-brandRed">
-                <option value="all">Tất cả các khu vực sự kiện</option>
-                <option value="checkin">Booth 01: Check In Zone (Photo booth & Quà tặng)</option>
-                <option value="tech">Booth 02: Tech Zone (Công nghệ BĐS AI)</option>
-                <option value="legal">Booth 03: Legal Zone (Tư vấn pháp lý BĐS)</option>
-                <option value="connect">Booth 04: Connect Zone (Kết nối đầu tư BĐS)</option>
-                <option value="service">Tư vấn Dịch vụ Sàn & Đăng tin miễn phí</option>
+              <select name="booth" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-sm text-gray-900 focus:outline-none focus:border-brandRed focus:ring-1 focus:ring-brandRed">
+                <option value="Tất cả các khu vực">Tất cả các khu vực sự kiện</option>
+                <option value="Booth 01: Check In Zone">Booth 01: Check In Zone (Photo booth & Quà tặng)</option>
+                <option value="Booth 02: Tech Zone">Booth 02: Tech Zone (Công nghệ BĐS AI)</option>
+                <option value="Booth 03: Legal Zone">Booth 03: Legal Zone (Tư vấn pháp lý BĐS)</option>
+                <option value="Booth 04: Connect Zone">Booth 04: Connect Zone (Kết nối đầu tư BĐS)</option>
+                <option value="Dịch vụ Sàn & Đăng tin">Tư vấn Dịch vụ Sàn & Đăng tin miễn phí</option>
               </select>
             </div>
           </div>
@@ -588,28 +588,28 @@
       <form id="registration-form" class="space-y-4">
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Họ và tên *</label>
-          <input type="text" required placeholder="Nhập họ và tên..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed">
+          <input type="text" name="fullname" required placeholder="Nhập họ và tên..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed">
         </div>
 
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Số điện thoại *</label>
-          <input type="tel" required placeholder="Nhập số điện thoại..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed">
+          <input type="tel" name="phone" required placeholder="Nhập số điện thoại..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed">
         </div>
 
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Email liên hệ</label>
-          <input type="email" placeholder="Nhập địa chỉ email..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed">
+          <input type="email" name="email" placeholder="Nhập địa chỉ email..." class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brandRed">
         </div>
 
         <div>
           <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Dịch vụ / Booth bạn quan tâm</label>
-          <select class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-brandRed">
-            <option value="all">Tất cả các khu vực sự kiện</option>
-            <option value="game">Game Zone (Minigame & Quà tặng)</option>
-            <option value="tech">Tech Cát Zone (Công nghệ BĐS)</option>
-            <option value="legal">Cát Legal Zone (Tư vấn pháp lý)</option>
-            <option value="connect">Cát Connect Zone (Kết nối đầu tư)</option>
-            <option value="service">Tư vấn Dịch vụ Sàn & Đăng tin</option>
+          <select name="booth" class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-2.5 text-sm text-gray-900 focus:outline-none focus:border-brandRed">
+            <option value="Tất cả các khu vực">Tất cả các khu vực sự kiện</option>
+            <option value="Game Zone">Game Zone (Minigame & Quà tặng)</option>
+            <option value="Tech Cát Zone">Tech Cát Zone (Công nghệ BĐS)</option>
+            <option value="Cát Legal Zone">Cát Legal Zone (Tư vấn pháp lý)</option>
+            <option value="Cát Connect Zone">Cát Connect Zone (Kết nối đầu tư)</option>
+            <option value="Tư vấn Dịch vụ Sàn">Tư vấn Dịch vụ Sàn & Đăng tin</option>
           </select>
         </div>
 

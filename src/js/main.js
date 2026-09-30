@@ -1,5 +1,8 @@
 // JavaScript chính cho Landing Page Kỷ Niệm 1 Năm Đại Đồng Cát
 
+// ⚠️ ĐƯỜNG DẪN GOOGLE APPS SCRIPT WEB APP (Thay URL của bạn vào biến dưới đây)
+const GOOGLE_SCRIPT_URL = 'VUI_LÒNG_THAY_URL_GOOGLE_APPS_SCRIPT_TẠI_ĐÂY';
+
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initAll);
 } else {
@@ -16,7 +19,14 @@ function initAll() {
 /* 1. Đồng Hồ Đếm Ngược (Countdown Timer) */
 function initCountdown() {
   // Mốc thời gian sự kiện kỷ niệm: 08:00 AM Ngày 03/10/2026
-  const targetDate = new Date(2026, 9, 3, 8, 0, 0); // Month 9 is October (0-indexed)
+  let targetDate = new Date(2026, 9, 3, 8, 0, 0);
+  const now = new Date().getTime();
+
+  // Nếu mốc 03/10/2026 đã qua so với giờ máy người dùng hoặc bị lỗi Invalid Date,
+  // Khởi tạo mốc đếm ngược 15 ngày 8 giờ 35 phút từ lúc truy cập (khởi tạo 1 lần duy nhất)
+  if (isNaN(targetDate.getTime()) || targetDate.getTime() <= now) {
+    targetDate = new Date(now + (15 * 24 * 60 * 60 * 1000) + (8 * 60 * 60 * 1000) + (35 * 60 * 1000));
+  }
 
   const daysEl = document.getElementById('cd-days');
   const hoursEl = document.getElementById('cd-hours');
@@ -81,7 +91,22 @@ function initBoothTabs() {
   });
 }
 
-/* 3. Modal Đăng Ký Tham Dự */
+/* 3. Hàm Gửi Dữ Liệu Form Sang Google Sheet */
+function sendDataToGoogleSheet(formData, sourceName) {
+  if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes('VUI_LÒNG_THAY_URL')) {
+    return Promise.resolve({ result: 'demo' });
+  }
+
+  formData.append('source', sourceName);
+
+  return fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: formData
+  });
+}
+
+/* 4. Modal & Section Đăng Ký Tham Dự */
 function initRegistrationModal() {
   const modal = document.getElementById('reg-modal');
   const openBtns = document.querySelectorAll('.btn-open-reg');
@@ -126,28 +151,37 @@ function initRegistrationModal() {
         submitBtn.innerText = 'ĐANG XỬ LÝ...';
       }
 
-      setTimeout(() => {
-        if (modal) {
-          modal.classList.add('hidden');
-          modal.classList.remove('flex');
-        }
-        regForm.reset();
+      const formData = new FormData(regForm);
 
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerText = 'XÁC NHẬN ĐĂNG KÝ';
-        }
+      sendDataToGoogleSheet(formData, 'Modal Đăng Ký')
+        .then(() => {
+          if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+          }
+          regForm.reset();
 
-        // Display Success Alert / Toast
-        if (successToast) {
-          successToast.classList.remove('hidden');
-          setTimeout(() => {
-            successToast.classList.add('hidden');
-          }, 4000);
-        } else {
-          alert('🎉 Chúc mừng! Bạn đã đăng ký tham dự sự kiện Kỷ niệm 1 năm Đại Đồng Cát thành công.');
-        }
-      }, 800);
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'XÁC NHẬN ĐĂNG KÝ THAM DỰ';
+          }
+
+          if (successToast) {
+            successToast.classList.remove('hidden');
+            setTimeout(() => {
+              successToast.classList.add('hidden');
+            }, 4000);
+          } else {
+            alert('🎉 Chúc mừng! Bạn đã đăng ký tham dự sự kiện Kỷ niệm 1 năm Đại Đồng Cát thành công.');
+          }
+        })
+        .catch(err => {
+          console.error('Error submitting form:', err);
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'XÁC NHẬN ĐĂNG KÝ THAM DỰ';
+          }
+        });
     });
   }
 
@@ -161,27 +195,37 @@ function initRegistrationModal() {
         submitBtn.innerText = 'ĐANG XỬ LÝ...';
       }
 
-      setTimeout(() => {
-        secForm.reset();
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i><span>XÁC NHẬN ĐĂNG KÝ THAM DỰ SỰ KIỆN</span>';
-        }
+      const formData = new FormData(secForm);
 
-        if (successToast) {
-          successToast.classList.remove('hidden');
-          setTimeout(() => {
-            successToast.classList.add('hidden');
-          }, 4000);
-        } else {
-          alert('🎉 Chúc mừng! Bạn đã đăng ký tham dự sự kiện Kỷ niệm 1 năm Đại Đồng Cát thành công.');
-        }
-      }, 800);
+      sendDataToGoogleSheet(formData, 'Form Trang Chủ')
+        .then(() => {
+          secForm.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i><span>XÁC NHẬN ĐĂNG KÝ THAM DỰ SỰ KIỆN</span>';
+          }
+
+          if (successToast) {
+            successToast.classList.remove('hidden');
+            setTimeout(() => {
+              successToast.classList.add('hidden');
+            }, 4000);
+          } else {
+            alert('🎉 Chúc mừng! Bạn đã đăng ký tham dự sự kiện Kỷ niệm 1 năm Đại Đồng Cát thành công.');
+          }
+        })
+        .catch(err => {
+          console.error('Error submitting form:', err);
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i><span>XÁC NHẬN ĐĂNG KÝ THAM DỰ SỰ KIỆN</span>';
+          }
+        });
     });
   }
 }
 
-/* 4. Navbar Sticky Effects */
+/* 5. Navbar Sticky Effects */
 function initNavbarScroll() {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
