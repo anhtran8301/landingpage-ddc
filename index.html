@@ -89,69 +89,77 @@
     </div>
   </header>
 
-  <!-- SECTION 1: HERO BANNER (KEY VISUAL FULL SECTION BACKDROP + COUNTDOWN TIMER) -->
-  <section id="hero" class="relative min-h-[85vh] flex flex-col justify-end pt-32 pb-16 px-4 bg-hero-ddc text-white overflow-hidden shadow-xl">
+  <!-- SECTION 1: HERO BANNER (FULL WIDTH KEY VISUAL IMAGE RIGHT BELOW HEADER) -->
+  <section id="hero" class="relative pt-16 bg-gradient-to-b from-deepRed via-brandRed to-darkRed text-white overflow-hidden shadow-xl">
     
-    <div class="max-w-5xl mx-auto text-center relative z-10 w-full mt-auto">
+    <!-- Full Width Key Visual Banner Image Right Below Header -->
+    <div class="w-full relative shadow-2xl">
+      <img src="./assets/images/hero-backdrop.png" alt="Sàn Giao Dịch Bất Động Sản Đại Đồng Cát - Kỷ Niệm 1 Năm Thành Lập" class="w-full h-auto object-cover block">
+    </div>
 
-      <!-- ĐỒNG HỒ ĐẾM NGƯỢC (COUNTDOWN TIMER TALL RECTANGLE) -->
-      <div class="max-w-3xl mx-auto mb-10 bg-black/35 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-white/20 shadow-2xl">
-        <p class="text-xs uppercase tracking-widest text-goldLight mb-6 font-bold">
-          <i class="fa-regular fa-clock text-gold mr-2"></i>ĐỒNG HỒ ĐẾM NGƯỢC THỜI GIAN DIỄN RA SỰ KIỆN
-        </p>
-        
-        <div class="timer-rect-container">
-          <!-- NGÀY -->
-          <div class="timer-rect-box">
-            <span id="cd-days" class="timer-rect-number">00</span>
-            <div class="timer-rect-line"></div>
-            <span class="timer-rect-label">NGÀY</span>
-          </div>
+    <!-- Countdown Timer & Action Buttons Section -->
+    <div class="py-12 px-4 bg-gradient-to-r from-deepRed via-brandRed to-darkRed border-t-2 border-gold/40">
+      <div class="max-w-5xl mx-auto text-center">
 
-          <!-- COLON -->
-          <div class="timer-rect-colon">:</div>
+        <!-- ĐỒNG HỒ ĐẾM NGƯỢC (COUNTDOWN TIMER TALL RECTANGLE) -->
+        <div class="max-w-3xl mx-auto mb-10">
+          <p class="text-xs uppercase tracking-widest text-goldLight mb-6 font-bold">
+            <i class="fa-regular fa-clock text-gold mr-2"></i>ĐỒNG HỒ ĐẾM NGƯỢC THỜI GIAN DIỄN RA SỰ KIỆN
+          </p>
+          
+          <div class="timer-rect-container">
+            <!-- NGÀY -->
+            <div class="timer-rect-box">
+              <span id="cd-days" class="timer-rect-number">00</span>
+              <div class="timer-rect-line"></div>
+              <span class="timer-rect-label">NGÀY</span>
+            </div>
 
-          <!-- GIỜ -->
-          <div class="timer-rect-box">
-            <span id="cd-hours" class="timer-rect-number">00</span>
-            <div class="timer-rect-line"></div>
-            <span class="timer-rect-label">GIỜ</span>
-          </div>
+            <!-- COLON -->
+            <div class="timer-rect-colon">:</div>
 
-          <!-- COLON -->
-          <div class="timer-rect-colon">:</div>
+            <!-- GIỜ -->
+            <div class="timer-rect-box">
+              <span id="cd-hours" class="timer-rect-number">00</span>
+              <div class="timer-rect-line"></div>
+              <span class="timer-rect-label">GIỜ</span>
+            </div>
 
-          <!-- PHÚT -->
-          <div class="timer-rect-box">
-            <span id="cd-minutes" class="timer-rect-number">00</span>
-            <div class="timer-rect-line"></div>
-            <span class="timer-rect-label">PHÚT</span>
-          </div>
+            <!-- COLON -->
+            <div class="timer-rect-colon">:</div>
 
-          <!-- COLON -->
-          <div class="timer-rect-colon">:</div>
+            <!-- PHÚT -->
+            <div class="timer-rect-box">
+              <span id="cd-minutes" class="timer-rect-number">00</span>
+              <div class="timer-rect-line"></div>
+              <span class="timer-rect-label">PHÚT</span>
+            </div>
 
-          <!-- GIÂY -->
-          <div class="timer-rect-box">
-            <span id="cd-seconds" class="timer-rect-number">00</span>
-            <div class="timer-rect-line"></div>
-            <span class="timer-rect-label">GIÂY</span>
+            <!-- COLON -->
+            <div class="timer-rect-colon">:</div>
+
+            <!-- GIÂY -->
+            <div class="timer-rect-box">
+              <span id="cd-seconds" class="timer-rect-number">00</span>
+              <div class="timer-rect-line"></div>
+              <span class="timer-rect-label">GIÂY</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <button class="btn-open-reg btn-ddc-gold px-8 py-4 text-sm font-extrabold tracking-wider uppercase flex items-center justify-center gap-3 w-full sm:w-auto shadow-2xl">
-          <i class="fa-solid fa-gift text-base"></i>
-          <span>Đăng Ký Nhận Vé Mời & Quà Tặng</span>
-        </button>
-        <a href="#booths" class="btn-ddc-outline px-8 py-4 text-sm font-extrabold tracking-wider uppercase flex items-center justify-center gap-3 w-full sm:w-auto shadow-lg">
-          <i class="fa-solid fa-compass"></i>
-          <span>Khám Phá 4 Booth Sự Kiện</span>
-        </a>
-      </div>
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button class="btn-open-reg btn-ddc-gold px-8 py-4 text-sm font-extrabold tracking-wider uppercase flex items-center justify-center gap-3 w-full sm:w-auto shadow-2xl">
+            <i class="fa-solid fa-gift text-base"></i>
+            <span>Đăng Ký Nhận Vé Mời & Quà Tặng</span>
+          </button>
+          <a href="#booths" class="btn-ddc-outline px-8 py-4 text-sm font-extrabold tracking-wider uppercase flex items-center justify-center gap-3 w-full sm:w-auto shadow-lg">
+            <i class="fa-solid fa-compass"></i>
+            <span>Khám Phá 4 Booth Sự Kiện</span>
+          </a>
+        </div>
 
+      </div>
     </div>
   </section>
 
