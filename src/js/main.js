@@ -1,7 +1,7 @@
 // JavaScript chính cho Landing Page Kỷ Niệm 1 Năm Đại Đồng Cát
 
-// ⚠️ ĐƯỜNG DẪN GOOGLE APPS SCRIPT WEB APP (Thay URL của bạn vào biến dưới đây)
-const GOOGLE_SCRIPT_URL = 'VUI_LÒNG_THAY_URL_GOOGLE_APPS_SCRIPT_TẠI_ĐÂY';
+// ⚠️ ĐƯỜNG DẪN GOOGLE APPS SCRIPT WEB APP
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbydctrAnKLFS_8FP9cGRHBkDWp-AJt_SjwuVeHqrV3YoiNK1Rqhc9YJznM2fVkw3ejH/exec';
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initAll);
