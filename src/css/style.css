@@ -69,9 +69,10 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* Background Hero Banner - Màu Đỏ Đầm Daidongcat.vn */
+/* Background Hero Banner - Full Section Image Backdrop Web */
 .bg-hero-ddc {
-  background: linear-gradient(135deg, #5E000A 0%, #800000 45%, #A00D2A 100%);
+  background: url('../../assets/images/hero-backdrop.png') no-repeat center center / cover;
+  min-height: 85vh;
 }
 
 .bg-trongdong-pattern {
