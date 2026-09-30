@@ -341,8 +341,7 @@
       <img src="./assets/images/emblem-trongdong.png" alt="Trống Đồng Emblem" class="hero-center-emblem opacity-15">
     </div>
     <div class="max-w-6xl mx-auto text-center relative z-10 px-2 my-auto">
-      <i class="fa-solid fa-quote-left text-gold text-5xl mb-4 block opacity-80"></i>
-      <span class="text-xs uppercase font-extrabold tracking-widest text-brandRed bg-white px-6 py-2 rounded-full mb-4 inline-block shadow-md">THÔNG ĐIỆP THƯƠNG HIỆU</span>
+      <span class="text-xs uppercase font-extrabold tracking-widest text-brandRed bg-white px-6 py-2 rounded-full mb-4 inline-block shadow-md">THÔNG ĐIỆP SỰ KIỆN</span>
       
       <!-- Slogan Headline (1 Dòng Co Giãn Tự Động) -->
       <h2 class="title-slogan-single-line font-black font-heading text-goldLight tracking-wide mb-6 leading-tight drop-shadow-xl">
@@ -633,7 +632,7 @@
   </div>
 
   <!-- Main JavaScript File -->
-  <script src="./src/js/main.js"></script>
+  <script type="module" src="./src/js/main.js"></script>
 
   <!-- Inline Failsafe Countdown Script for Guaranteed Execution on Deploy -->
   <script>
@@ -646,10 +645,6 @@
         if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
         var targetDate = new Date(2026, 9, 3, 8, 0, 0);
-        var now = new Date().getTime();
-        if (isNaN(targetDate.getTime()) || targetDate.getTime() <= now) {
-          targetDate = new Date(now + (15 * 24 * 60 * 60 * 1000) + (8 * 60 * 60 * 1000) + (35 * 60 * 1000));
-        }
 
         function update() {
           var cur = new Date().getTime();

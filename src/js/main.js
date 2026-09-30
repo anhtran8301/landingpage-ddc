@@ -16,14 +16,7 @@ function initAll() {
 /* 1. Đồng Hồ Đếm Ngược (Countdown Timer) */
 function initCountdown() {
   // Mốc thời gian sự kiện kỷ niệm: 08:00 AM Ngày 03/10/2026
-  let targetDate = new Date(2026, 9, 3, 8, 0, 0);
-  const now = new Date().getTime();
-
-  // Nếu mốc 03/10/2026 đã qua so với giờ máy người dùng hoặc bị lỗi Invalid Date,
-  // Khởi tạo mốc đếm ngược 15 ngày 8 giờ 35 phút từ lúc truy cập (khởi tạo 1 lần duy nhất)
-  if (isNaN(targetDate.getTime()) || targetDate.getTime() <= now) {
-    targetDate = new Date(now + (15 * 24 * 60 * 60 * 1000) + (8 * 60 * 60 * 1000) + (35 * 60 * 1000));
-  }
+  const targetDate = new Date(2026, 9, 3, 8, 0, 0); // Month 9 is October (0-indexed)
 
   const daysEl = document.getElementById('cd-days');
   const hoursEl = document.getElementById('cd-hours');
