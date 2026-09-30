@@ -97,61 +97,63 @@
       <!-- Ảnh Banner Khổ Rộng -->
       <img src="./assets/images/hero-backdrop.png" alt="Sàn Giao Dịch Bất Động Sản Đại Đồng Cát - Kỷ Niệm 1 Năm Thành Lập" class="w-full h-auto object-cover block min-h-[360px] sm:min-h-[480px]">
 
-      <!-- Khối Đồng Hồ Đếm Ngược & Nút Bấm Đè Lên Vị Trí Ô Xanh Trong Ảnh (Dịch Qua Phải) -->
-      <div class="absolute bottom-[2.5%] left-[6%] sm:bottom-[5%] sm:left-[10%] md:bottom-[7%] md:left-[12%] lg:bottom-[9%] lg:left-[14%] z-20 w-[90%] sm:w-[54%] md:w-[48%] lg:w-[45%] max-w-xl p-0">
-        
-        <!-- Timer boxes -->
-        <div class="timer-rect-container transform scale-90 sm:scale-100 my-1">
-          <!-- NGÀY -->
-          <div class="timer-rect-box">
-            <span id="cd-days" class="timer-rect-number">00</span>
-            <div class="timer-rect-line"></div>
-            <span class="timer-rect-label">NGÀY</span>
+      <!-- Khối Đồng Hồ Đếm Ngược & Nút Bấm Đè Lên Vị Trí Ô Xanh Trong Ảnh -->
+      <div class="absolute bottom-[2.5%] left-[6%] sm:bottom-[5%] sm:left-[10%] md:bottom-[7%] md:left-[12%] lg:bottom-[9%] lg:left-[14%] z-20 p-0 flex flex-col items-start">
+        <div class="w-fit flex flex-col items-stretch">
+          
+          <!-- Timer boxes -->
+          <div class="timer-rect-container my-1">
+            <!-- NGÀY -->
+            <div class="timer-rect-box">
+              <span id="cd-days" class="timer-rect-number">00</span>
+              <div class="timer-rect-line"></div>
+              <span class="timer-rect-label">NGÀY</span>
+            </div>
+
+            <!-- COLON -->
+            <div class="timer-rect-colon">:</div>
+
+            <!-- GIỜ -->
+            <div class="timer-rect-box">
+              <span id="cd-hours" class="timer-rect-number">00</span>
+              <div class="timer-rect-line"></div>
+              <span class="timer-rect-label">GIỜ</span>
+            </div>
+
+            <!-- COLON -->
+            <div class="timer-rect-colon">:</div>
+
+            <!-- PHÚT -->
+            <div class="timer-rect-box">
+              <span id="cd-minutes" class="timer-rect-number">00</span>
+              <div class="timer-rect-line"></div>
+              <span class="timer-rect-label">PHÚT</span>
+            </div>
+
+            <!-- COLON -->
+            <div class="timer-rect-colon">:</div>
+
+            <!-- GIÂY -->
+            <div class="timer-rect-box">
+              <span id="cd-seconds" class="timer-rect-number">00</span>
+              <div class="timer-rect-line"></div>
+              <span class="timer-rect-label">GIÂY</span>
+            </div>
           </div>
 
-          <!-- COLON -->
-          <div class="timer-rect-colon">:</div>
-
-          <!-- GIỜ -->
-          <div class="timer-rect-box">
-            <span id="cd-hours" class="timer-rect-number">00</span>
-            <div class="timer-rect-line"></div>
-            <span class="timer-rect-label">GIỜ</span>
+          <!-- 2 Nút Bấm Căn Thẳng Lề 2 Bên Với Đồng Hồ Đếm Ngược -->
+          <div class="w-full flex flex-row items-center justify-between gap-2 sm:gap-3 mt-2.5 sm:mt-4">
+            <button class="btn-open-reg btn-ddc-gold flex-1 py-2.5 sm:py-3 px-2 sm:px-3 text-[10px] sm:text-xs font-extrabold tracking-wider uppercase flex items-center justify-center gap-1.5 sm:gap-2 shadow-xl whitespace-nowrap text-center">
+              <i class="fa-solid fa-gift text-xs sm:text-sm"></i>
+              <span>Đăng Ký Nhận Vé Mời & Quà Tặng</span>
+            </button>
+            <a href="#booths" class="btn-ddc-outline flex-1 py-2.5 sm:py-3 px-2 sm:px-3 text-[10px] sm:text-xs font-extrabold tracking-wider uppercase flex items-center justify-center gap-1.5 sm:gap-2 shadow-lg whitespace-nowrap text-center">
+              <i class="fa-solid fa-compass text-xs sm:text-sm"></i>
+              <span>Khám Phá 4 Booth</span>
+            </a>
           </div>
 
-          <!-- COLON -->
-          <div class="timer-rect-colon">:</div>
-
-          <!-- PHÚT -->
-          <div class="timer-rect-box">
-            <span id="cd-minutes" class="timer-rect-number">00</span>
-            <div class="timer-rect-line"></div>
-            <span class="timer-rect-label">PHÚT</span>
-          </div>
-
-          <!-- COLON -->
-          <div class="timer-rect-colon">:</div>
-
-          <!-- GIÂY -->
-          <div class="timer-rect-box">
-            <span id="cd-seconds" class="timer-rect-number">00</span>
-            <div class="timer-rect-line"></div>
-            <span class="timer-rect-label">GIÂY</span>
-          </div>
         </div>
-
-        <!-- 2 Nút Bấm Động -->
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mt-3 sm:mt-5">
-          <button class="btn-open-reg btn-ddc-gold px-4 py-2.5 sm:px-6 sm:py-3 text-[11px] sm:text-xs font-extrabold tracking-wider uppercase flex items-center justify-center gap-2 w-full sm:w-auto shadow-xl">
-            <i class="fa-solid fa-gift text-xs sm:text-sm"></i>
-            <span>Đăng Ký Nhận Vé Mời & Quà Tặng</span>
-          </button>
-          <a href="#booths" class="btn-ddc-outline px-4 py-2.5 sm:px-6 sm:py-3 text-[11px] sm:text-xs font-extrabold tracking-wider uppercase flex items-center justify-center gap-2 w-full sm:w-auto shadow-lg">
-            <i class="fa-solid fa-compass"></i>
-            <span>Khám Phá 4 Booth</span>
-          </a>
-        </div>
-
       </div>
     </div>
   </section>
