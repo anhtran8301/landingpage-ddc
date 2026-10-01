@@ -54,12 +54,12 @@ body {
 
 /* Biểu Tượng Trống Đồng Nằm Chính Giữa Section (100% Nguyên Vẹn - Tròn Đầy Đủ Không Mất Góc) */
 .hero-center-emblem {
-  width: min(560px, 72vh, 85vw);
-  height: min(560px, 72vh, 85vw);
+  width: min(580px, 75vh, 85vw);
+  height: min(580px, 75vh, 85vw);
   object-fit: contain;
-  opacity: 0.18;
+  opacity: 0.22;
   mix-blend-mode: screen;
-  filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.5));
+  filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4));
   pointer-events: none;
   animation: rotateEmblem 90s linear infinite;
 }
